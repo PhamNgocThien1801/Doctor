@@ -3,6 +3,8 @@ import { StyleSheet, View, Text } from "react-native";
 import { Avatar, Button } from "react-native-elements";
 import { auth } from "../../firebase";
 
+import UserImage from "../assets/user.png"; // Import the image file
+
 export default function ProfileScreen({ navigation }) {
   const handleSignOut = () => {
     auth
@@ -19,7 +21,7 @@ export default function ProfileScreen({ navigation }) {
         rounded
         size={100}
         icon={{ name: "person", type: "material" }}
-        //source={user.avatar}
+        source={UserImage} // Update the source with the imported image
         avatarStyle={styles.avatarStyle}
         activeOpacity={0.7}
         containerStyle={{ marginVertical: 20 }}
@@ -40,7 +42,7 @@ export default function ProfileScreen({ navigation }) {
         buttonStyle={styles.buttonContainer}
         titleStyle={{ color: "black", fontSize: 18 }}
         title="Edit Profile"
-        onPress={() => console.log("Edit my profile!")}
+        onPress={() => navigation.navigate("EditProfileScreen")}
       />
 
       <Button

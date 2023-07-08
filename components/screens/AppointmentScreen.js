@@ -13,7 +13,11 @@ function AppointmentScreen({ navigation }) {
     const appointmentRef = db.ref("appointments/" + auth.currentUser?.uid);
     appointmentRef.on("value", (snapshot) => {
       const data = snapshot.val();
-      setAppointments(Object.values(data));
+      if (data) {
+        setAppointments(Object.values(data));
+      } else {
+        setAppointments([]);
+      }
     });
   };
 

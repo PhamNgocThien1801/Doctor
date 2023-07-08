@@ -29,6 +29,11 @@ const HomeStackNavigator = () => {
           headerTitleStyle: { fontSize: 18, fontWeight: "bold" },
         }}
       />
+      <Stack.Screen
+        name="ProfileEdit"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
